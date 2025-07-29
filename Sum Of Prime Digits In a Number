@@ -1,4 +1,4 @@
-#*********sum of prime digits in a numbers*********
+#*********sum of prime digits in a number*********
 nums = int(input())
 sum = 0
 primes = {2, 3, 5, 7}
