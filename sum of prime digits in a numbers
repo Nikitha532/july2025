@@ -1,0 +1,10 @@
+#*********sum of prime digits in a numbers*********
+nums = int(input())
+sum = 0
+primes = {2, 3, 5, 7}
+while nums > 0 :
+    n = nums%10
+    if n in primes :
+        sum = sum + n
+    nums = nums//10
+print(sum)
