@@ -8,3 +8,22 @@ while nums > 0 :
         sum = sum + n
     nums = nums//10
 print(sum)
+----------------------------------------------------------------------------------------------------
+def checkPrime(n):
+    factors = 0
+    for i in range (1, n+1) :
+        if (n%i == 0):
+            factors += 1
+    if factors == 2:
+        return True
+    else :
+        return False
+    
+nums = int(input())
+sum = 0
+while (nums > 0) :
+    rem = nums % 10
+    if(checkPrime(rem)) :
+        sum += rem
+    nums = nums//10
+print(sum)
