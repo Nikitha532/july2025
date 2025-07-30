@@ -1,0 +1,17 @@
+class Solution(object):
+    def generate(self,s,ind,n,ans,op,cl):
+        if(op>n):
+            return
+        if(op+cl==2*n and op==cl):
+            ans.append(s)
+            return
+        self.generate(s+"(",ind+1,n,ans,op+1,cl)
+        if(op>cl):
+            self.generate(s+")",ind+1,n,ans,op,cl+1)
+    def generateParenthesis(self, n):
+        ans=[]
+        op=0
+        cl=0
+        ind=0
+        self.generate("",ind,n,ans,op,cl)
+        return ans
