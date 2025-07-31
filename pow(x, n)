@@ -1,0 +1,20 @@
+class Solution(object):
+    def Power(self,x,n):
+        if(n==0):
+            return 1
+        elif (n%2==1):
+            return x*self.Power(x,n-1)
+        else:
+            return self.Power(x*x,n//2)
+    def myPow(self, x, n):
+        """
+        :type x: float
+        :type n: int
+        :rtype: float
+        """
+        if (n<0):
+            x=1/x
+        n=abs(n)
+        return self.Power(x,n)
+
+        
