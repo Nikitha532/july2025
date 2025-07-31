@@ -1,0 +1,20 @@
+class Solution:
+    def generate(self, index, curr_subset, ans, candidates, target) :
+        if (target == 0) :
+            ans.append(curr_subset.copy())
+            return
+        if (target < 0):
+            return
+        for i in range(index,len(candidates)) :
+            if i > index and candidates[i] == candidates[i-1] :
+                continue
+            curr_subset.append(candidates[i])
+            self.generate(i+1, curr_subset, ans, candidates, target-candidates[i])
+            curr_subset.pop()
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        ans = []
+        curr_subset = []
+        index = 0
+        candidates.sort()
+        self.generate(index, curr_subset, ans, candidates, target)
+        return ans
