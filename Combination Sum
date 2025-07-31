@@ -1,0 +1,17 @@
+class Solution:
+    def generate(self, index, cur_subset, ans, candidates, target) :
+        if (target == 0):
+            ans.append(cur_subset.copy())
+            return
+        if (target < 0 or index == len(candidates)):
+            return
+        cur_subset.append(candidates[index])
+        self.generate(index, cur_subset,ans, candidates, target-candidates[index])
+        cur_subset.pop()
+        self.generate(index+1, cur_subset, ans, candidates, target)
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        index = 0
+        cur_subset = []
+        ans = []
+        self.generate(index, cur_subset, ans, candidates, target)
+        return ans
